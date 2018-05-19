@@ -1,0 +1,16 @@
+1、typeof a => 返回为字符串类型
+ 
+  结果        值          
+  string      'xxx'
+  number      xx
+  boolean     true | false
+  object      {} | new Date() | [] | null
+  function    function
+  undefined   undefined
+
+2、xx instanceof 数据类型 => 返回true | false
+
+3、prototype
+  Object.prototype.toString.call(xx) === '[object String|Number|Array|Date|Function|Undefined|Null]'
+
+

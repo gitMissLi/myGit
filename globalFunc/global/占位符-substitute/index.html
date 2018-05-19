@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>占位符-substitute</title>
+  <script src="../../global.js"></script>
+</head>
+<body>
+  <script>
+    var sContent = `<div>{name}</div>`
+
+    console.log(window.Ls.utils.substitute(sContent, {
+      name: 'aa'
+    }))
+
+    // <div>aa</div>
+  </script>
+</body>
+</html>

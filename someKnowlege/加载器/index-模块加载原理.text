@@ -1,0 +1,15 @@
+http://www.cnblogs.com/constantince/p/5374371.html
+
+
+https://www.zhihu.com/question/21157540
+简单的模块加载器=》理解AMD
+https://github.com/yanhaijing/lodjs
+https://github.com/constantince/require
+
+加载原理：？？？？
+1、createElement('script')和appendChild(script) 动态创建脚本，添加到head元素中
+2、fn.toString().match(/\.require\((\"|\')[^\)]*(\"|\')\)/g) 将模块转换为字符串，然后通过正则表达式，匹配每个模块中的依赖文件。
+3、建立脚本加载队列
+4、递归加载，分析完依赖之后，我们需要按照依赖出现的位置，将他们加载到客户端
+5、为每一个命名的模块建立缓存，即module[name] = callback
+6、currentScript：对于匿名模块，通过currentScript来获取文件名，存入到缓存中
