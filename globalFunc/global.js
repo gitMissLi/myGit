@@ -1,9 +1,9 @@
 (function (window, document) {
-  
+
   // 函数扩展
-  
+
   // 日期扩展 new Date('time').Format(xx)
-  Date.prototype.Format = function (fmt) { 
+  Date.prototype.Format = function (fmt) {
     if (!fmt) {
       fmt = 'yyyy-MM-dd hh:mm:ss'
     }
@@ -19,7 +19,7 @@
     }
 
     if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, (this.getFullYear() + ''.substr(4 - RegExp.$1.length)))
+      fmt = fmt.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length))
     }
 
     for (var k in o) {
@@ -54,7 +54,6 @@
         }
 
         sContent = sContent.replace(new RegExp('\\{' + p + '\\}', 'g'), sValue)
-        // sContent = sContent.replace(//g, sValue) 变量处理？
       }
 
       return sContent
