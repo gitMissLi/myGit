@@ -57,6 +57,31 @@
       }
 
       return sContent
+    },
+
+    /**
+    * 深度拷贝
+    */
+    deepCopyObject: function () {
+        // jquery
+        $.extend(true, {}, {})
+    },
+    deepCopy: function (obj) {
+        // 定义一个对象，用来确定当前的参数是数值还是对象
+        var objArray = Array.isArray(obj) ? [] : {}
+
+        if (obj && typeof obj === 'object') {
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    if (obj[key] && typeof obj[key] === 'object') {
+                        objArray[key] = deepCopy(obj[key])
+                    } else {
+                        objArray[key] = obj[key]
+                    }
+                }
+            }
+        }
+        return objArray
     }
 
   }

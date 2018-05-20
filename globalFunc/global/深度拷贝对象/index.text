@@ -1,0 +1,11 @@
+https://www.cnblogs.com/tracylin/p/5346314.html
+
+http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/
+
+JSON.parse(JSON.stringify)
+    处理函数，正则或循环不行
+
+slice | concat 只是创建引用
+
+jQuery的extend方法
+lodash的 _.clone | _.cloneDeep
