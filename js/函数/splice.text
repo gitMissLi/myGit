@@ -1,0 +1,7 @@
+// 删除元素 新增元素
+array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+splice方法使用deleteCount参数来控制是删除还是添加
+  start是必须，表示开始的位置（从0开始）
+  从start位置开始删除到最后 array.splice(start)
+  从start位置开始删除[start, count] array.splice(start, deleteCount)
+  从start位置开始添加item1，item2...元素 array.splice(start, 0, item1,item2...)

@@ -1,0 +1,7 @@
+https://www.cnblogs.com/xuxiaoxia/p/8405076.html
+
+newItems.splice(dst, 0, ...newItems.splice(src, 1))
+很多拖拽插件都是插入式
+github
+  Drugula
+  。。。。
