@@ -1,0 +1,7 @@
+new RegExp('字符串', '修饰符i g')
+/xxx/g
+
+match()
+replace()
+search()
+split()

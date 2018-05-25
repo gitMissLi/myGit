@@ -1,7 +1,14 @@
 https://www.cnblogs.com/xuxiaoxia/p/8405076.html
 
 newItems.splice(dst, 0, ...newItems.splice(src, 1))
+
 很多拖拽插件都是插入式
 github
-  Drugula
+  Drugula：
+    https://github.com/bevacqua/dragula
+    dragula([left, right], {
+      copy: Boolean | function  // 是否是复制，可配只能从一侧复制
+      accepts: Boolean | Function // 接受
+      moves: 是否为移动元素
+    })
   。。。。

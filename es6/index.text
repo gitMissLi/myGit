@@ -1,1 +1,61 @@
+let const 只在声明所在的块级作用域内有效 不会提升层级
 暂时性死区：let const 语句不出现变量的提升
+  只要一进入当前作用域，所使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才能获取和使用该变量
+
+避免在块级作用域中声明函数
+
+解构赋值:
+  默认值生效的条件，对象属性值严格等于undefined
+  var {x = 3} = {x: undefined}
+    x // 3
+  var {x = 3} = {x: null}
+    x // null
+
+ES6提供字符串的normalize()方法，
+    用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化
+
+repeat()  // 先转换成数字（取整运算）
+  'x'.repeat(2) // 重复两次； 为小数则取整； 负数报错（0到-1之间的小数，等同于0）
+
+padStart() padEnd() 自动补全
+  str.padStart(num|总长度, '补全的字符')
+  'x'.padStart(4, 'ab') // abax
+
+Symbol：独一无二的值
+  undefined null Boolean Number String Object Symbol // 数据类型
+  Symbol函数的参数只是表示对当前Symbol值的描述，因此，相同参数的Symbol函数的返回值不相等
+  Symbol('foo') == Symbol('foo') // false
+  Symbol值不能与其他类型的值进行运算
+
+删除对象属性
+  delete obj.name
+  Reflect.deleteProperty(obj, name)
+
+
+Promise
+  promise.then( () => {})
+         .catch( () => {})
+
+  Promise.all([p1, p2]).then()
+                       .catch()
+
+p1 = new Promise((resolve, reject) => {
+   resolve()
+}).then(result => result)
+
+p2 = new Promise((resolve, reject) => {
+  // code
+}).then(result => result)
+
+Promise.all([p1, p2]).then(result => console.log())
+                     .catch()
+
+new Promise((resolve, reject) => {
+
+}).then(function() {
+  // 另一个请求
+}).then(function() {
+
+}).catch(function(error) {
+  // 错误
+})

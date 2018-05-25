@@ -1,6 +1,6 @@
 https://www.cnblogs.com/xuxiaoxia/p/8405076.html
 
-将某个替换
+将某个替换：处理函数
 let src = newItems.indexOf(this.dragging)
 let dst = newItems.indexOf(item)
 let srcData = newItems[src]

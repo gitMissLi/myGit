@@ -1,0 +1,36 @@
+<div
+  class="column justify-center"
+  style="height: 100%"
+  draggable="true"
+  @dragstart="handleDragStart($event, index)"
+  @dragover.prevent="handleDragOver($event, index)"
+  @dragenter="handleDragEnter($event, index)"
+  @drop="handleDrop($event, index)"
+  @dragend="handleDragEnd($event, index)">
+  <div class="text-center" v-if="getCurrentItem(index) < 0" v-show="editMode">
+    <q-btn color="secondary" round icon="add" @click="addItem(index)"></q-btn>
+  </div>
+  <slot v-else name="flex-column-content" :item="getColumnInfo(index)"></slot>
+</div>
+
+handleDragStart (e, index) {
+  let src = this.layoutData.find(o => o.mode[this.mode] === index)
+  if (src) {
+    this.dragging = index
+  } else {
+    e.preventDefault()
+  }
+},
+handleDragEnd (e) {
+  this.dragging = null
+},
+handleDragOver (e) {
+  e.dataTransfer.dropEffect = 'move'
+},
+handleDragEnter (e) {
+  // 如果在鼠标经过时就要重组内容，则可在此写处理函数
+  e.dataTransfer.effectAllowed = 'move'
+},
+handleDrop (e, index) {
+  // 如果在鼠标放下后才进行互换位置， 则可在此写处理函数。 
+}

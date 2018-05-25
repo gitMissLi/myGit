@@ -1,0 +1,17 @@
+https://segmentfault.com/a/1190000007371890
+
+import Multiselect from 'vue-multiselect'
+
+components: {
+  Multiselect
+}
+
+// 配置参考api
+ <multiselect
+    :multiple="true"
+    v-model="newTag"
+    :options="newTagList"
+    track-by="tag_key"
+    label="alias"
+    :close-on-select="false"
+    :clear-on-select="false"></multiselect>
