@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '<li>1</li><li>2</li><li>3</li>'
+        jQuery.parseHTML(str, document, true) // ['li', 'li', 'li']
+        // 第三个参数： 是否将script标签加入 true | false
+
+        var arr = {
+            0: 'li',
+            1: 'li',
+            length: 2
+        }
+
+        var arr2 = ['c', 'd']
+
+        $.merge(arr, arr2)
+        结果为
+        {
+            0:'li',
+            1:'li',
+            2: 'c',
+            3: 'd',
+            length: 4
+        }
+
+
+    </script>
+</body>
+</html>

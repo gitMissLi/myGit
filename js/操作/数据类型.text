@@ -1,0 +1,9 @@
+typeof
+结果        值
+string      'xxx'
+number      xx
+boolean     true | false
+object      {} | new Date() | [] | null
+function    function
+undefined   undefined
+symbol      symbol
