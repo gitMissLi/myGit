@@ -1,0 +1,10 @@
+
+// 事件处理
+mounted () {
+  window.onresize = () => {
+    //
+  }
+  window.addEventListener('click', () => {
+    // 事件处理
+  })
+}
