@@ -1,0 +1,42 @@
+根据id值获取父级
+[{
+  xx:xx,
+  children: [{
+    xx: xx,
+    children: []
+  }]
+}]
+getItemParentNode (sKey, aoData) {
+  if (!aoData || !aoData.length) {
+    return
+  }
+  let oParent = null
+
+  for (let i = 0, len = aoData.length; i < len; i++) {
+    let temp = aoData[i]
+
+    if (temp.children && temp.children.length) {
+      if (temp.children.some(o => o.key === sKey)) {
+        oParent = temp
+      } else {
+        oParent = this.getItemParentNode(sKey, temp.children)
+      }
+    }
+
+    if (oParent) {
+      break
+    }
+  }
+
+  return oParent
+},
+delItemData (sKey) {
+  let index = this.nodeData.findIndex(o => o.key === sKey)
+
+  if (index === undefined) {
+    let oParent = this.getItemParentNode(sKey, this.nodeData)
+    oParent.children = oParent.children.filter(o => o.key !== sKey)
+  } else {
+    this.nodeData = this.nodeData.splice(index, 1)
+  }
+},

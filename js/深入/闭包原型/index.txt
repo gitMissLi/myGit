@@ -1,0 +1,37 @@
+https://www.cnblogs.com/wangfupeng1988/p/3977924.html
+
+typeof
+  值类型： number undefined string boolean
+  对象： null [] {} function()      => object
+
+// 判断对象
+fn instanceof Object
+
+对象都是通过函数来创建的
+实例；obj={} => new Object() | new Array()
+
+每个函数function都有一个prototype，即原型
+每一个对象都有 一个__proto__ 可成为隐性原型
+每一个对象都有 一个__proto__属性，指向创建该对象的函数的prototype
+
+prototype原型
+Object                       Object Prototype
+prototype（指向对象原型）      constructor（指向对象）
+                              hasOwnProperty...
+
+访问一个对象的属性时，现在基本属性中查找，如果没有，再沿着__proto__这条链向上找，这就是原型链
+那么我们在实际应用中如何区分一个属性到底是基本的还是从原型中找到的呢？大家可能都知道答案了——hasOwnProperty，特别是在for…in…循环中，一定要注意。
+
+函数表达式                            函数声明
+console.log(f1)  //undefined     console.log(f2)  // function f2() {}
+var f1 = function () {}         function f2 () {}
+
+准备工作：
+  变量、函数表达式--变量声明，默认赋值undefined
+  this--- 赋值
+  函数声明--- 赋值
+这三种数据的准备情况称之为 执行上下文 或 执行上下文环境
+
+javascript除了全局作用域之外，只有函数可以创建作用域
+
+要到创建这个函数的那个作用域中取值，时“创建”而不是“调用”

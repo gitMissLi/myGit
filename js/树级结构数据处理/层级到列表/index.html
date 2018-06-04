@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>children -> 列表</title>
+</head>
+<body>
+  <script>
+    var aoTestData = [{
+      key: 1,
+      name: 1,
+      children: [{
+        key: 2,
+        name: 2,
+        children: [{
+          key: 5,
+          name: 5
+        }, {
+          key: 6,
+          name: 6,
+          children: [{
+            key: 7,
+            name: 7
+          }]
+        }]
+      }, {
+        key: 3,
+        name:3
+      }]
+    }, {
+      key: 4,
+      name: 4,
+      children: []
+    }]
+    var aoNew = []
+
+    function _getLineData(aoData, parentId, data) {
+      aoData.forEach(function (oData) {
+        data.push({
+          name: oData.name,
+          key: oData.key,
+          parent: parentId
+        })
+
+        if (oData.children && oData.children.length) {
+          _getLineData(oData.children, oData.key, data)
+        }
+      })
+    }
+
+    let ao = []
+    _getLineData(aoTestData, 0, ao)
+    console.log(ao)
+    // console.log(aoNew)
+
+    // 获取元素的子级
+    function _getChildById (sKey, aoData, data) {
+      if (aoData && aoData.length) {
+
+        aoData.forEach(o => {
+          if (o.key === sKey) {
+           _getLineData(o.children, sKey, data)
+          } else if (o.children && o.children.length){
+            _getChildById(sKey, o.children, data)
+          }
+        })
+
+      }
+    }
+
+    let ab = []
+    _getChildById(1, aoTestData, ab)
+    console.log(ab)
+
+
+  //   function _getData(sParent,nLevel) {
+  //       var aInvialid = [];
+
+  //       aInvialid = _getChildDataById(sParent);
+
+  //       // 返回元素的子集。
+  //       if(aInvialid.length) {
+  //           aInvialid.forEach(function(oData) {
+  //               aoNew.push({
+  //                   name: oData.name,
+  //                   parent: oData.parent,
+  //                   data: oData.data,
+  //                   level: nLevel
+  //               });
+  //               // 循环获取数据。
+  //               _getData(oData.name,nLevel+1);
+  //           });
+  //       }
+
+
+  //       function _getChildDataById(sId) {
+  //           var aResult = [];
+
+  //           aResult = aoTest.filter(function(oData) {
+  //               return oData.parent == sId;
+  //           });
+
+  //           return aResult;
+  //       }
+  //   }
+
+  // _getData("",0)
+
+    
+  // 递归函数。
+  // function _getChildrenById(sParent, nLevel) {
+
+  //   var aInvialid = [];
+
+  //   aInvialid = aoTest.filter(function(oData) {
+  //       return oData.parent == sParent;
+  //   });
+
+  //   // 返回元素的子集。
+  //   if(aInvialid.length) {
+  //       aoNew = aoNew.concat(aInvialid)
+  //       aInvialid.forEach(function(oData) {
+  //           oData.nLevel = nLevel;
+  //           _getChildrenById(oData.name,nLevel+1);
+  //       });
+  //   }
+  // }
+
+  // _getChildrenById("",0)
+
+  </script>
+</body>
+</html>

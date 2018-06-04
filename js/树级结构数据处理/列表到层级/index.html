@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>列表->children</title>
+</head>
+<body>
+  <script>
+    var aoTestData = [{
+      id: 1,
+      parentId: 0,
+      data: [{
+        name: 1
+      }]
+    }, {
+      id: 2,
+      parentId: 1,
+      data: [{
+        name: 2
+      }]
+    },{
+      id: 3,
+      parentId: 1,
+      data: [{
+        name: 3
+      }]
+    }, {
+      id: 4,
+      parentId: 2,
+      data: [{
+        name: 4
+      }]
+    }, {
+      id: 5,
+      parentId: 4,
+      data: [{
+        name: 5
+      }]
+    }]
+
+    function _getChildrenDataById(parentId, nLevel) {
+      var aValid = []
+
+      aValid = aoTestData.filter(function(o) {
+        return o.parentId === parentId
+      })
+
+      if (aValid && aValid.length) {
+        aValid.forEach(function (o) {
+          o.level = nLevel
+          o.children = _getChildrenDataById(o.id, nLevel + 1)
+        })
+      }
+
+      return aValid
+    }
+    console.log(_getChildrenDataById(0, 0))
+    // [{
+    //     id:
+    //     parentId:
+    //     level:
+    //     children: [{
+    //         id:
+    //         parentId:
+    //         level: 
+    //         children: [...]
+    //     },{
+    //         id:
+    //         parentId:
+    //         level:
+    //         children: [...]
+    //     }]
+    // }]
+  </script>
+</body>
+</html>
