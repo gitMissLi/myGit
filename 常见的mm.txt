@@ -1,0 +1,2 @@
+1、将nodeList转为数组处理 (nodeList 没有数组的pop。push)
+  Array.prototype.slice.call(document.querySelectorAll('xx'))
