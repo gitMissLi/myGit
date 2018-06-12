@@ -1,5 +1,8 @@
 https://vuex.vuejs.org/zh/
 
+vuex原理分析：
+http://web.jobbole.com/91187/
+
 Vuex： store
   state:      定义状态
   mutations   设置state状态

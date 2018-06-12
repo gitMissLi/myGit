@@ -6,3 +6,5 @@ export const outerHeight = (el) => {
   height += parseInt(style.marginTop) + parseInt(style.marginBottom)
   return height
 }
+
+// for (let [index, v] of [].entries()) {}
