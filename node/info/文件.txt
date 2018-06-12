@@ -1,0 +1,9 @@
+文件系统 fs
+var fs = require('fs')
+fs.writeFileSync(目录, 内容)
+fs.readFileSync(目录)
+
+fs.writeFileSync(dst, fs.readFileSync(src))
+
+大文件通过文档流
+  fs.createReadStream(src).pipe(fs.createWriteStream(dst))

@@ -1,3 +1,8 @@
+https://vuex.vuejs.org/zh/
+
+vuex原理分析：
+http://web.jobbole.com/91187/
+
 Vuex： store
   state:      定义状态
   mutations   设置state状态
@@ -139,7 +144,39 @@ Module: 每个模块 都拥有自己的state...
   store.state.b // -> moduleB 的状态
 
 
+模块中 => 得到模块下的; 第一个参数是模块空间名称字符串
+computed: {
+  ...mapState('some/nested/module', {
+    a: state => state.a,
+    b: state => state.b
+  })
+},
+methods: {
+  ...mapActions('some/nested/module', [
+    'foo',
+    'bar'
+  ]),// 等同于下面
+  ...mapActions([
+    'some/nested/module/foo',
+    'some/nested/module/bar'
+  ])
+}
 
+// 或者创建一个命名空间辅助函数
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('some/nested/module')
+computed: {
+  ...mapState({
+    a: state => state.a,
+    b: state => state.b
+  })
+},
+methods: {
+  ...mapActions([
+    'foo',
+    'bar'
+  ])
+}
 
 
 
