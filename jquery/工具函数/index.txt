@@ -1,0 +1,22 @@
+工具函数
+    extend
+        任意对象扩展
+            $.extend(obj, obj1)
+        实例对象扩展
+            $.fn.extend({
+                setName: function() {}
+            })
+        自己本身扩展
+            $.extend({
+                getName: function() {}
+            })
+选择器
+异步队列
+数据缓存
+浏览器测试
+属性的操作
+事件处理
+bom操作
+css操作
+动画
+ajax

@@ -1,0 +1,34 @@
+1、typeof a => 返回为字符串类型
+
+  结果        值
+  string      'xxx'
+  number      xx
+  boolean     true | false
+  object      {} | new Date() | [] | null
+  function    function
+  undefined   undefined
+
+2、xx instanceof 数据类型 => 返回true | false
+
+3、prototype
+  Object.prototype.toString.call(xx) === '[object String|Number|Array|Date|Function|Undefined|Null]'
+
+3、hasOwnProperty
+for in 遍历对象时要判断，因为会循环原型里的属性
+    obj.hasOwnProperty(key) =>在做处理
+
+作用域：
+    对属性和方法有访问的权限
+局部作用域：通过function来声明
+    函数调用时才会创建
+变量的就近原则/作用域/生命周期
+    全局变量：生命周期，全局作用域中，关闭浏览器进程内存空间回收
+    局部变量：定义在函数中，调用即存在，调用完毕即销毁
+
+函数执行规则：
+    函数声明 函数表达式
+    只要是函数声明 在内存中就一定会有引用名称
+    当我们调用一个函数， 首先去栈中检索有没有定义的fn变量
+        有： 根据fn变量存储的内存地址找到对应的内存空间
+                如果fn没有存储内存地址，则去堆中找fn的引用
+        没有： 到堆中找fn的引用

@@ -303,6 +303,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		target = {};
 	}
 
+	// 插件
 	// extend jQuery itself if only one argument is passed
 	if ( length === i ) {
 		target = this;
@@ -317,11 +318,13 @@ jQuery.extend = jQuery.fn.extend = function() {
 				src = target[ name ];
 				copy = options[ name ];
 
+				// 防止循环引用
 				// Prevent never-ending loop
 				if ( target === copy ) {
 					continue;
 				}
 
+				// 深拷贝
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
 					if ( copyIsArray ) {
@@ -337,6 +340,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 				// Don't bring in undefined values
 				} else if ( copy !== undefined ) {
+					// 浅拷贝
 					target[ name ] = copy;
 				}
 			}
@@ -414,15 +418,19 @@ jQuery.extend({
 	isArray: Array.isArray,
 
 	isWindow: function( obj ) {
+		// undefined | null == null =>true  其他都为false
 		return obj != null && obj === obj.window;
 	},
 
 	isNumeric: function( obj ) {
+		// typeof NaN => number 不能用原生的
+		// 转数字 && 有限 Number.MAX_VALUE 是计算机能计算的最大数，超过了就不能计算
 		return !isNaN( parseFloat(obj) ) && isFinite( obj );
 	},
 
 	type: function( obj ) {
 		if ( obj == null ) {
+			// undefined null
 			return String( obj );
 		}
 		// Support: Safari <= 5.1 (functionish RegExp)
@@ -477,6 +485,7 @@ jQuery.extend({
 		if ( !data || typeof data !== "string" ) {
 			return null;
 		}
+		// 省参=>默认上下文为document
 		if ( typeof context === "boolean" ) {
 			keepScripts = context;
 			context = false;
@@ -491,6 +500,7 @@ jQuery.extend({
 			return [ context.createElement( parsed[1] ) ];
 		}
 
+		// 多标签
 		parsed = jQuery.buildFragment( [ data ], context, scripts );
 
 		if ( scripts ) {
@@ -714,6 +724,7 @@ jQuery.extend({
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;
 
+		// $.proxy(obj, 'show') => $.proxy(obj.show, 'obj')
 		if ( typeof context === "string" ) {
 			tmp = fn[ context ];
 			context = fn;

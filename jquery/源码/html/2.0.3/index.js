@@ -85,3 +85,61 @@ pushStack： 放在栈里
 
 eq()
     pushStack(元素)
+
+jQuery.fn.init.prototype = jQuery.fn;
+
+jQuery.extend = jQuery.fn.extend = function () {}
+
+$.extend() => 扩展工具 => $.xx()
+    this -> $
+$.fn.extend() => 扩展jq实例 => $().xx()
+    this -> $.fn(原型)
+当只写一个对象自变量的时候，jq中扩展插件的形式
+
+$(function() {})    // dom加载 =》 DOMContentLoaded
+$(document).ready(function(){}) =>$().ready()
+window.onload = function() {}   // dom+资源（src）加载
+
+jQuery.extend({
+    expando: 生成唯一jq字符串（内部）
+    noConflict: 防止冲突
+    isReady
+})
+
+
+类型判断
+$.type
+    {}.toString.call([] | new Date | ...) == [object, Array|date..]
+
+obj = new Object()
+obj = {}
+// 对象自变量
+$.isPlainObject
+    // 通过对象的hasOwnProperty 是否有 isPrototypeOf
+
+$.parseHTML(str, document, boolean)
+    str => '<li></li>'
+    document => 存放的位置
+    boolean => script标签是否创建
+
+$.parseJSON: JSON.parse
+
+$.nodeName(document.documentElement, 'html')    // 判断节点的节点名称
+
+$.each
+
+$.makeArray
+
+$.grep // 过滤
+    $.grep([], function() {过滤条件}[, true | false])   过滤出第二个函数与第三个参数不等的
+
+$.map([], function() {})    // 组合成新的函数
+
+$.proxy 更改this指向
+
+access
+
+swap =》获取隐藏元素信息
+    display
+
+$.callback(options)

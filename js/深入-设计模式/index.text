@@ -1,0 +1,15 @@
+单例模式
+桥接模式
+工厂模式
+观察者模式
+订阅者模式
+装饰
+
+如果把对象/方法全部暴露在外面：全局对象不利于性能、避免全局污染
+// 全局对象过多=>对象的封装
+var checkObj = {
+    checkUserName: function () {},
+    checkPassword: function () {}
+}
+
+1、较为规范

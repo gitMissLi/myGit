@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <script>
+        var obj = {name: 'moly'}
+        var obj1 = {age: 18}
+        var obj2 = {height: 165}
+
+        // $.extend(obj, obj1, obj2)
+        $.fn.extend({
+            setName: function() {}
+        })
+        $.extend({
+            getName: function() {}
+        })
+
+        function fn(a, b) {
+            var arg = arguments
+            var result = $.makeArray(arg)
+            console.log(result.push) //
+        }
+        fn(1,3)
+    </script>
+</body>
+</html>
