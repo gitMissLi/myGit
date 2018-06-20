@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文本设置</title>
+  <style>
+    div {
+      font-family: 'Arial Narrow Bold';
+      font-style: "italic";
+      font-weight: bold;
+      font-size: 20px;
+      font: bold italic 26px '微软雅黑'
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    font-weight 文字加粗
+      bold      加粗
+      normal    正常
+    font-style  文字倾斜
+      italic    倾斜
+      normal    正常
+    font-size
+    line-height 文字在一行里面所占用的位置
+      当行高与容器高度一致时，文字会垂直居中
+
+    font 复合样式，需要注意顺序
+      font: font-weight | font-style | font-size | font-family
+    多行行高处理：
+      1、确定文字大小
+      2、确认两行文字之间的空隙大小
+      3、空隙大小除以2，得出的值就是每行文字的上下的间隙大小
+        3.1、当行高为奇数时，文字的上方要比下方少一个像素
+        3.2、当行高为偶数时，文字上下间隙值一致
+      4、设置文字的行高
+   -->
+   <div></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>margin</title>
+  <style>
+    .box {
+      background-color: red;
+      /* border: 1px solid transparent; */
+    }
+    .box1 {
+      height: 50px;
+      background-color: blue;
+      margin: 100px;
+    }
+    .box2 {
+      height: 50px;
+      background-color: yellow;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    margin-top 传递问题
+      子级设置margin-top值会传递到父级
+      解决： 父级设置border
+    margin    上下叠加
+      解决技巧：
+        1、使用margin， 给某一个元素单独设置
+   -->
+   <div class="box">
+     <div class="box1">box1</div>
+     <div class="box2">box2</div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+常用插件：
+Azure Cosmos DB
+Code Runner
+Debugger for Chrome
+Docker
+ESLint
+JavaScript(ES6) code snippets
+Markdown Preview Enhanced
+npm
+npm Intellisense
+One Dark Pro
+Path Intellisense
+Prettier
+Vetur
+vscode-icons
+Vue 2 Snippets
