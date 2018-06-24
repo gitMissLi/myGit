@@ -9,7 +9,7 @@ import store from './store'
 import 'normalize.css/normalize.css'
 
 // 注入icon组件
-import './icons'
+// import './icons'
 
 import * as filters from './filters'
 // 全局注册过滤器

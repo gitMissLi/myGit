@@ -1,0 +1,35 @@
+https://panjiachen.github.io/vue-element-admin-site/#/zh-cn/README
+
+1、package.json
+    中模块的版本信息
+      ^ 自动下载最新版
+      ~ 下载修复小版（修改bug)
+      直接默认的版本   （一般新版本可能兼容不支持）
+
+2、router中路由配置
+    component的值是函数 () => import | require()
+
+    路由中热更新处理：https://panjiachen.github.io/vue-element-admin-site/#/zh-cn/lazy-loading
+      1、（已废弃） => views/xx.vue 文件都会打包，导致增加dist文件大小
+        开发环境中使用require
+        生产环境中使用import  （热更新-懒加载）
+
+      2、使用babel插件babel-plugin-dynamic-import-node
+          package.json:
+              "dev": "cross-env BABEL_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"
+          .babellrc:
+            {
+              "env": {
+                "development": {
+                  "plugins": ["dynamic-import-node"]
+                }
+              }
+            }
+          可以直接import模块
+      3、webpack4 提高了打包和编译的速度，再多的页面热更新都能很快，不需要通过以上方法解决
+
+3、icon的处理
+    1、build/webpack.base.config.js 中配置.svg文件编译loader
+    2、svg-sprite-loader
+         webpack默认会使用url-loader来解析svg文件。=> 指定的自己文件用svg-sprite 除此外用默认的
+    3、明白require.context()
