@@ -7,6 +7,7 @@
     </div>
     <input
       v-show="editing"
+      v-active-focus="editing"
       type="text"
       class="edit"
       :value="todo.text"
@@ -23,6 +24,27 @@ export default {
   data () {
     return {
       editing: false
+    }
+  },
+  directives: {
+    // 编辑时，设置其focus状态
+    // 'active-focus': {
+    //   update (el, { value }) {
+    //     if (value) {
+    //       el.focus()
+    //     }
+    //   }
+    // }
+    // 在bind 和 update都会执行的简写
+    'active-focus'(el, { value }, { context }) {
+      // 只有编辑时，才会有focus状态
+      if (value) {
+        el.focus()
+        // or=> contxt: li.todo
+        context.nextTick(o => {
+          el.focus()
+        })
+      }
     }
   },
   methods: {
@@ -47,7 +69,7 @@ export default {
       const { todo } = this
 
       if (!value) {
-        this.deleteTodo({todo})
+        this.deleteTodo(todo)
       } else if (this.editing) {
         this.editTodo({
           todo,

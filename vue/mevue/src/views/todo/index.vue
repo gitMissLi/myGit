@@ -2,7 +2,7 @@
   <section class="todoapp">
     <header class="header">
       <h1>todos</h1>
-      <input type="text" class="new-todo" placeholder="What needs to be done?" @keyup.enter="addTodo" />
+      <input type="text" v-focus class="new-todo" placeholder="What needs to be done?" @keyup.enter="addTodo" />
     </header>
     <section class="main" v-show="todos.length">
       <input :checked="allChecked" id="toggle-all" type="checkbox" class="toggle-all" @change="toggleAll({done: !allChecked})" />
@@ -65,6 +65,15 @@ export default {
     },
     filteredTodos () {
       return filters[this.visibility](this.todos)
+    }
+  },
+  directives: {
+    // 自定义指令v-focus
+    'focus': {
+      // dom插入时，设置其focus
+      inserted (el) {
+        el.focus()
+      }
     }
   },
   filters: {

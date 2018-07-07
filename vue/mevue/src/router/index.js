@@ -13,7 +13,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/hello',
       name: 'HelloWorld',
       component: _import('HelloWorld')  // () => import('@/views/HelloWorld.vue')
     },

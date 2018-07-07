@@ -17,30 +17,42 @@ export default {
     }
   },
   methods: {
+    // 鼠标滚动，移动tab位置
     handleScroll(e) {
       const eventDelta = e.wheelDelta || -e.deltaY * 3
       const $container = this.$refs.scrollContainer
-      const $containerWidth = $container.offsetWidth
+      const $containerWidth = $container.offsetWidth  // 外层容器宽度
       const $wrapper = this.$refs.scrollWrapper
       const $wrapperWidth = $wrapper.offsetWidth
 
+      // left的值 -xx - 0
       if (eventDelta > 0) {
+        // 像后运动-》left要变大 wrapper的最大left为0
         this.left = Math.min(0, this.left + eventDelta)
       } else {
+        // 向前运动-》left要变小
+        // 内容超出外层范围
         if ($containerWidth - padding < $wrapperWidth) {
+          // 最大值 $containerWidth - $wrapperWidth - padding
+          // 超过最大滚动值
           if (this.left < -($wrapperWidth - $containerWidth + padding)) {
             this.left = this.left
           } else {
+            // left改变值与最大改变值直接范围
             this.left = Math.max(this.left + eventDelta, $containerWidth - $wrapperWidth - padding)
           }
         } else {
+          // 内容没超出外层范围
           this.left = 0
         }
       }
     },
+    // 运行到指定的节点
     moveToTarget($target) {
+      // 可视区
       const $container = this.$refs.scrollContainer
       const $containerWidth = $container.offsetWidth
+      // 内容区
       const $wrapperWidth = this.$refs.scrollWrapper.offsetWidth
       const $targetWidth = $target.offsetWidth
 

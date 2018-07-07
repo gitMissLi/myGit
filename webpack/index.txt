@@ -1,0 +1,38 @@
+1、初始化
+    npm init
+
+2、下载webpack  (本地在项目中安装)：webpack展示一个打包工具，项目上线后用的是打包后的结果，为了区分核心包依赖和开发工具依赖
+    npm install --save-dev webpack@3.12.0
+
+    --save-dev    开发依赖
+    --save        生产依赖
+
+3、新建webpack.config.js
+  const path = require('path')
+
+  module.exports = {
+    entry: './src/main.js',                     // 入口文件
+    output: {
+      path: path.join(__dirname, './build'),    // 打包的目录（使用绝对路径）
+      filename: 'bundle.js'                     // 打包后的文件名
+    }
+  }
+
+4、配置package.json
+  // 使用命令 npm run build 打包
+  {
+    "name": "demo1",
+    "version": "1.0.0",
+    "description": "webpack-demo1",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node ./src/main.js",
+      "build": "webpack"
+    },
+    "author": "lis",
+    "license": "ISC",
+    "devDependencies": {
+      "webpack": "^3.12.0"
+    }
+  }
