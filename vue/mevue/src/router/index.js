@@ -17,10 +17,17 @@ export default new Router({
       name: 'HelloWorld',
       component: _import('HelloWorld')  // () => import('@/views/HelloWorld.vue')
     },
+    // todo
     {
       path: '/todo',
       name: 'Todo',
       component: _import('todo/index')
+    },
+    // echarts 图形
+    {
+      path: '/line-chart',
+      name: 'lineChart',
+      component: _import('echarts/line-chart')
     },
     {
       path: '/icon',
