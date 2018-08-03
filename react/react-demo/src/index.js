@@ -23,6 +23,9 @@ class MagicNumber extends Component {
       <div>
         <p>{ name }</p>
         <p>{ number }</p>
+        <button onClick={(function(event) {
+          // this指向
+        }).bind(this)}>test function</button>
         <button onClick={(event) => {
           console.log(event.nativeEvent)
           event.stopPropagation()
@@ -38,6 +41,34 @@ class MagicNumber extends Component {
           })
         }}>change number</button>
       </div>
+    )
+  }
+}
+
+class Sun extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      num: props.num
+    }
+  }
+
+  componentDidMount () {
+    console.log('sun mount')
+  }
+
+  componentDidUpdate () {
+    console.log('sun 更新')
+  }
+
+  componentWillUnmount () {
+    console.log('sun 卸载')
+  }
+
+  render () {
+    return (
+      <div ref={el => this.outDiv=el}></div>
     )
   }
 }

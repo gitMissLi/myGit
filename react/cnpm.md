@@ -104,4 +104,73 @@
                 number: Math.random()
               })
             }}>change number</button>
-        
+
+        this指向
+          · 代码中 行内绑定 | 箭头 函数
+            {(function(event) {
+              // this
+            }).bind(this)}  // bind会返回新的函数 =》 每次render都会更新，会耗性能
+
+          // 箭头函数
+          · xx = () => {
+
+          }
+
+          · constructor | function 中 重新定义一个函数
+            this.handleFunction = this.handleFunction.bind(this)
+
+
+  10、生命周期 (只有类组件才有声明周期)
+      Mounting 装载
+        constructor
+          执行一次
+        static getDerivedStateFromProps (prop, state)
+          在render之前，给你一次改变 state 的机会， 不改变就返回 null
+        render
+        componentDidMount
+          执行一次
+          获取真正的dom元素
+
+      Update 更新
+        父组件更新，（已挂载）子组件也会随着更新
+        static getDerivedStateFromProps (prop, state)
+        shouldComponentUpdate(nextProps, nextState)
+          用于优化性能（比较state的值是否一样 => 是否需要更新）
+          返回一个bool值
+            true 组件正常更新
+            false 后面的不执行，页面不更新
+        render
+        getSnapshotBeforeUpdate(prevProp, prevState)
+          它执行的时候，新的virtual dom结构已经计算出来了，但是，浏览器的dom元素还没更新
+          正式更新前 return 的值在DidUpdate中可接收
+        componentDidUpdate(prevProp, prevState, snapShot)
+          更新已经完成的时候调用
+          获取真正的 dom元素
+
+      Unmounting 卸载
+        componentWillUnmount
+          只执行一次
+      
+      错误处理
+        componentDidCatch(error, info)
+
+  11、获取DOM
+      1、字符串 （不推荐使用）
+        <div ref="divRef"></div>
+        this.refs.divRef
+
+      2、回调
+        <div ref={el => this.outDiv=el}></div>
+        在mount中使用
+          this.outDiv
+      
+      3、createRef
+          在constructor中
+            this.outDiv = createRef()
+
+          <div ref={this.outDiv}></div>
+
+          使用： this.outDiv.current
+
+  12、组件受控受控
+    组件变化 react是否接管
