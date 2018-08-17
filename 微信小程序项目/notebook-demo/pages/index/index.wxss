@@ -1,0 +1,21 @@
+/**index.wxss**/
+.note-item {
+  background-color: #8ebdc3;
+  padding: 4px 10px;
+}
+.item-content {
+  height: 30px;
+  line-height: 30px;
+}
+.item-time {
+  color: #fff;
+}
+.edit-item {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.edit-item image {
+  width: 20px;
+  height: 20px;
+}

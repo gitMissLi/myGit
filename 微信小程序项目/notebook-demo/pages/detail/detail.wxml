@@ -1,0 +1,15 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="input-text">
+    <input
+      type="text"
+      placeholder="请输入内容"
+      value="{{content}}"
+      bindinput="inputChange"></input>
+  </view>
+
+  <view class="btns">
+    <view bindtap="cancelEdit">取消</view>
+    <view bindtap="confirmEdit">确定</view>
+  </view>
+</view>

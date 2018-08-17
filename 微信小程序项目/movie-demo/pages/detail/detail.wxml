@@ -1,0 +1,10 @@
+<!--pages/detail/detail.wxml-->
+<view wx:if="{{!loading}}">
+  <video wx:if="{{detail.play_url}}" style="width: 100%;" src="{{'https://www.koocv.com/h5-view/v/movie/play?url=' + detail.play_url}}"></video>
+  <view class="wrap">
+    <view class="title">{{detail.title}}</view>
+    <view class="text">又名: {{detail.aka}}</view>
+    <view class="genres">{{detail.genres}} / {{detail.countries[0]}} / {{detail.rating.average}}</view>
+    <view class="summary">{{detail.summary}}</view>
+  </view>
+</view>

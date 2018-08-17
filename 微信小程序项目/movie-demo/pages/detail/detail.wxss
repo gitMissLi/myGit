@@ -1,0 +1,16 @@
+/* pages/detail/detail.wxss */
+.wrap {
+  padding: 50rpx;
+}
+.wrap .title {
+  font: bold 20px/2 '微软雅黑';
+}
+
+.wrap .text {
+  font: 12px/1.5 '微软雅黑';
+}
+
+.wrap .summary,
+.wrap .genres {
+  font: 14px/1.5 '微软雅黑';
+}

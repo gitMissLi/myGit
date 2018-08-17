@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true">
+    <view
+      class="note-item"
+      wx:for="{{noteList}}"
+      wx:key="{{item.time}}"
+      data-id="{{item.time}}"
+      bindtap="editNoteItem">
+      <view class="item-content">{{item.content}}</view>
+      <view class="item-time">{{item.time}}</view>
+    </view>
+  </scroll-view>
+  <view class="edit-item" bind:tap="addNote">
+    <image src="../../common/imgs/edit.png"></image>
+  </view>
+</view>
