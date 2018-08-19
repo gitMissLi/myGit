@@ -26,11 +26,26 @@ Page({
       url: `https://www.koocv.com/h5-view/v/movie/detail/?id=${sId}`,
       success: res => {
         console.log(res.data)
+        wx.setNavigationBarTitle({
+          title: res.data.title
+        })
         wx.hideLoading()
         this.setData({
           detail: res.data,
           loading: false
         })
+
+        // 保存
+        let arr = wx.getStorageSync('historyMovie') || []
+        // [{id:,title,cover,rate}]
+        arr = arr.filter(o => o.id !== res.data.id)
+        arr.unshift({
+          id: res.data.id,
+          title: res.data.title,
+          rate: res.data.rating.average,
+          cover: res.data.images.medium
+        })
+        wx.setStorageSync('historyMovie', arr)
       }
     })
     // 

@@ -1,2 +1,9 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<import src="/common/template/list.wxml"></import>
+<view class="userinfo">
+  <image class="userinfo-avatar" src="{{user.avatarUrl}}" mode="cover"></image>
+  <text class="userinfo-nickname">{{user.nickName}}</text>
+</view>
+<view>
+  <text>历史记录</text>
+  <template name="list-template" data="{{list, isLoading}}"></template>
+</view>

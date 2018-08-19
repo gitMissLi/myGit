@@ -1,2 +1,5 @@
 <!--pages/subject/subject.wxml-->
-<text>pages/subject/subject.wxml</text>
+<view class="wrap" wx:for="{{list}}" wx:key="{{item.type}}" data-type="{{item.type}}" bindtap="tapToList">
+  <image mode="widthFix" src="{{item.url}}"></image>
+  <text>{{item.type}}</text>
+</view>

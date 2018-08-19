@@ -1,1 +1,16 @@
 /* pages/subject/subject.wxss */
+.wrap {
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.wrap image {
+  width: 100%;
+  border-radius: 5rpx;
+}
+.wrap text {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+  font: bold 20px/1.5 '微软雅黑';
+}

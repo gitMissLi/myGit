@@ -1,0 +1,2 @@
+<import src="/common/template/list.wxml"></import>
+<template is="list-template" data="{{list, isLoading}}"></template>

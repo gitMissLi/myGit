@@ -1,9 +1,2 @@
-<scroll-view scroll-y lower-threshold="200" style="height: 100%;" bindscrolltolower="lower">
-  <view class="item" wx:for="{{list}}" data-id="{{item.id}}" wx:key="{{item.id}}" bindtap="showDetail">
-    <image src="{{item.cover}}"></image>
-    <text>{{ item.title + "/" + item.rate }}</text>
-  </view>
-  <view class="item-loading" wx:if="{{isLoading}}">
-    <image mode="widthFix" src="/assets/loading/loading-bars.svg"></image>
-  </view>
-</scroll-view>
+<import src="/common/template/list.wxml"></import>
+<template is="list-template" data="{{list, isLoading}}"></template>

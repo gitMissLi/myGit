@@ -1,1 +1,17 @@
 /* pages/user/user.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}

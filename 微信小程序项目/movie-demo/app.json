@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/user/user",
     "pages/subject/subject",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/subject-list/subject-list"
   ],
   "window": {
     "backgroundTextStyle": "light",
