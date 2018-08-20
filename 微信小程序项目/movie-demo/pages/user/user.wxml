@@ -5,5 +5,5 @@
 </view>
 <view>
   <text>历史记录</text>
-  <template name="list-template" data="{{list, isLoading}}"></template>
+  <template is="list-template" data="{{list, isLoading}}"></template>
 </view>

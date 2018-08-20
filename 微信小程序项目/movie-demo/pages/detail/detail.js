@@ -45,6 +45,7 @@ Page({
           rate: res.data.rating.average,
           cover: res.data.images.medium
         })
+        console.log(arr)
         wx.setStorageSync('historyMovie', arr)
       }
     })

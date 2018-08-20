@@ -15,12 +15,14 @@ Page({
    */
   onLoad: function (options) {
     this.getUser()
+  },
+  onShow () {
     this.getStorage()
   },
-
   getUser () {
     wx.getUserInfo({
       success: res => {
+        console.log(res)
         this.setData({
           user: res.userInfo
         })
@@ -36,9 +38,17 @@ Page({
       isLoading: true
     })
     let arr = wx.getStorageSync('historyMovie') || []
+    console.log(arr)
     this.setData({
       list: arr,
       isLoading: false
+    })
+  },
+  // 显示详情
+  showDetail(e) {
+    let { id } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `../detail/detail?id=${id}`,
     })
   }
 })
